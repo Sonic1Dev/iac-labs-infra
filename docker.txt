@@ -1,0 +1,109 @@
+student@student-ubuntu:~/iac-labs-infra/terraform/zad2$ terraform state list
+docker_container.nginx
+docker_image.nginx
+docker_tag.tag_89533
+student@student-ubuntu:~/iac-labs-infra/terraform/zad2$ terraform show
+# docker_container.nginx:
+resource "docker_container" "nginx" {
+    attach                                      = false
+    bridge                                      = null
+    command                                     = [
+        "nginx",
+        "-g",
+        "daemon off;",
+    ]
+    container_read_refresh_timeout_milliseconds = 15000
+    cpu_set                                     = null
+    cpu_shares                                  = 0
+    dns                                         = []
+    dns_opts                                    = []
+    dns_search                                  = []
+    domainname                                  = null
+    entrypoint                                  = [
+        "/docker-entrypoint.sh",
+    ]
+    env                                         = []
+    gateway                                     = "172.17.0.1"
+    group_add                                   = []
+    hostname                                    = "db57135a9aa8"
+    id                                          = "db57135a9aa83aee212e0567045644386b100892bd251f5cc54f9bdf4a3d3733"
+    image                                       = "sha256:f876bfc1cc63d905bb9c8ebc5adc98375bb8e22920959719d1a96e8f594868fa"
+    init                                        = false
+    ip_address                                  = "172.17.0.3"
+    ip_prefix_length                            = 16
+    ipc_mode                                    = "private"
+    links                                       = []
+    log_driver                                  = "json-file"
+    log_opts                                    = {}
+    logs                                        = false
+    max_retry_count                             = 0
+    memory                                      = 0
+    memory_swap                                 = 0
+    must_run                                    = true
+    name                                        = "tutorial"
+    network_data                                = [
+        {
+            gateway                   = "172.17.0.1"
+            global_ipv6_address       = null
+            global_ipv6_prefix_length = 0
+            ip_address                = "172.17.0.3"
+            ip_prefix_length          = 16
+            ipv6_gateway              = null
+            network_name              = "bridge"
+        },
+    ]
+    network_mode                                = "default"
+    pid_mode                                    = null
+    privileged                                  = false
+    publish_all_ports                           = false
+    read_only                                   = false
+    remove_volumes                              = true
+    restart                                     = "no"
+    rm                                          = false
+    runtime                                     = "runc"
+    security_opts                               = []
+    shm_size                                    = 64
+    start                                       = true
+    stdin_open                                  = false
+    stop_signal                                 = "SIGQUIT"
+    stop_timeout                                = 0
+    storage_opts                                = {}
+    sysctls                                     = {}
+    tmpfs                                       = {}
+    tty                                         = false
+    user                                        = null
+    userns_mode                                 = null
+    wait                                        = false
+    wait_timeout                                = 60
+    working_dir                                 = null
+
+    ports {
+        external = 8080
+        internal = 80
+        ip       = "0.0.0.0"
+        protocol = "tcp"
+    }
+}
+
+# docker_image.nginx:
+resource "docker_image" "nginx" {
+    id           = "sha256:f876bfc1cc63d905bb9c8ebc5adc98375bb8e22920959719d1a96e8f594868fanginx:latest"
+    image_id     = "sha256:f876bfc1cc63d905bb9c8ebc5adc98375bb8e22920959719d1a96e8f594868fa"
+    keep_locally = false
+    latest       = "sha256:f876bfc1cc63d905bb9c8ebc5adc98375bb8e22920959719d1a96e8f594868fa"
+    name         = "nginx:latest"
+    repo_digest  = "nginx@sha256:42e917aaa1b5bb40dd0f6f7f4f857490ac7747d7ef73b391c774a41a8b994f15"
+}
+
+# docker_tag.tag_89533:
+resource "docker_tag" "tag_89533" {
+    id              = "sha256:f876bfc1cc63d905bb9c8ebc5adc98375bb8e22920959719d1a96e8f594868fa.docker_tag"
+    source_image    = "sha256:f876bfc1cc63d905bb9c8ebc5adc98375bb8e22920959719d1a96e8f594868fa"
+    source_image_id = "sha256:f876bfc1cc63d905bb9c8ebc5adc98375bb8e22920959719d1a96e8f594868fa"
+    target_image    = "docker_tag"
+}
+
+
+Outputs:
+
+address = "http://localhost:8080"
