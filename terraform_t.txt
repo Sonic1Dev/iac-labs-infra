@@ -1,0 +1,25 @@
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+webserver = "3.71.16.127"
+webserver2 = "44.222.217.58"
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1/3-moduly$ cd ..
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1$ cd 1-import/
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1/1-import$ terraform state list
+aws_instance.web
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1/1-import$ cd ..
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1$ cd 2-zmienne/
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1/2-zmienne$ terraform state list
+aws_instance.web
+aws_subnet.main
+aws_vpc.main
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1/2-zmienne$ cd ..
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1$ cd 3-moduly/
+student@student-ubuntu:~/iac-labs-infra/terraform/zad1/3-moduly$ terraform state list
+module.aws_vpc.aws_vpc.main
+module.aws_vpc_east.aws_vpc.main
+module.webserver.aws_instance.webserver
+module.webserver.aws_subnet.webserver
+module.webserver2.aws_instance.webserver
+module.webserver2.aws_subnet.webserver
